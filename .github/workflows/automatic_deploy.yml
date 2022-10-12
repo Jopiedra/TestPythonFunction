@@ -1,0 +1,10 @@
+name: automatic_deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v3
