@@ -12,6 +12,7 @@ jobs:
           fetch-depth: 0
       - name: 'Get Previous tag'
         id: previoustag
+        uses: ./
       - run: |
           echo "Tag: ${{ steps.previoustag.outputs.tag }}"
           echo "Timestamp: ${{ steps.previoustag.outputs.timestamp }}"
