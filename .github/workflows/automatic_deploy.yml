@@ -7,6 +7,8 @@ jobs:
   create-tag:
     runs-on: ubuntu-latest
     steps:
+      - name: 'Get Previous tag'
+        id: previoustag
       - run: |
           echo "Tag: ${{ steps.previoustag.outputs.tag }}"
           echo "Timestamp: ${{ steps.previoustag.outputs.timestamp }}"
