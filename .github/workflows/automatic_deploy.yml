@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: Setup Deploy
         shell: cmd
-        working-directory: Deploy
+        working-directory: ./Deploy
         run: |
           ls -a
