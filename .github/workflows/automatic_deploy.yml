@@ -9,4 +9,10 @@ jobs:
     steps:
       - name: Setup Deploy
         shell: cmd
-        run: ls -a      
+        run: |
+          @ECHO OFF
+          SETLOCAL EnableDelayedExpansion
+          @echo:
+          @echo Welcome to CANDEPLOY Tool, Version 3.1.
+          @echo:
+          @echo:
