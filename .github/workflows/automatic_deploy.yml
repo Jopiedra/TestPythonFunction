@@ -8,5 +8,5 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Setup Deploy
-        run: .\deploy.bat
         shell: cmd
+        run: .\deploy.bat       
