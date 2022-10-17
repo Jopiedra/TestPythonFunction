@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Deploy
-        working-directory: ./Deploy
+        working-directory: Deploy
         run: .\deploy.bat 
           
