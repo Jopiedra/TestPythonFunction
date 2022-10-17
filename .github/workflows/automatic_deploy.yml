@@ -11,5 +11,5 @@ jobs:
         shell: cmd
 #         working-directory: ./Deploy
         run: |
-          cd ../..
+          cd ../../_Temp
           dir
