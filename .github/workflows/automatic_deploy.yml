@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Setup Deploy
         shell: cmd
-        run: deploy.bat       
+        run: ls -a      
