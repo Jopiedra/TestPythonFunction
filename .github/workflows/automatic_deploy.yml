@@ -11,5 +11,4 @@ jobs:
         shell: cmd
 #         working-directory: ./Deploy
         run: |
-          cd ../../..
           dir
