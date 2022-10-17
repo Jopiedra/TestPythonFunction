@@ -10,6 +10,4 @@ jobs:
       - name: Setup Deploy
         shell: cmd
 #         working-directory: ./Deploy
-        run: |
-          dir
-          deploy.bat
+        run: deploy.bat
