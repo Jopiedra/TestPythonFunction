@@ -9,7 +9,8 @@ jobs:
     steps:
       - name: Setup Deploy
         run: |
-          shell: cmd
+            ...
+        shell: cmd
       - name: RUN CMD
         working-directory: Deploy
         run: .\deploy.bat
