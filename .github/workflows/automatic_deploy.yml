@@ -12,3 +12,4 @@ jobs:
 #         working-directory: ./Deploy
         run: |
           dir
+          deploy.bat
