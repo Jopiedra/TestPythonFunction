@@ -7,6 +7,6 @@ jobs:
   create-tag:
     runs-on: ubuntu-latest
     steps:
-      - working-directory: ../Deploy
+      - working-directory: ./Deploy
         run: .\deploy.bat 
           
