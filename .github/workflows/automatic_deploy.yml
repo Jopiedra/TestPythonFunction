@@ -5,9 +5,7 @@ on:
       - main
 jobs:
   create-tag:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Setup Deploy
-        shell: cmd
-#         working-directory: ./Deploy
-        run: ./deploy.bat
+        run: ./deploy.sh
