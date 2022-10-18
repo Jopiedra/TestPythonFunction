@@ -5,15 +5,11 @@ on:
       - main
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Setup Deploy
 #         run: ./github-actions-script.sh
-        run: |
-          echo 1. What is in this directory?
-          ls -a
-          echo
-          echo 2. Is Z7 installed?
-          echo
+        shell: cmd
+        run: deploy.bat
