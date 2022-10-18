@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Setup Deploy
-        run: ./deploy.sh
+        run: ./github-actions-script.sh
