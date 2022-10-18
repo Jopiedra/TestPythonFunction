@@ -5,11 +5,11 @@ on:
       - main
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       
       - name: Setup Deploy
-#         run: ./github-actions-script.sh
-        shell: cmd
-        run: ./deploy.bat
+        run: ./github-actions-script.sh
+#         shell: cmd
+#         run: ./deploy.bat
