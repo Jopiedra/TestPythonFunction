@@ -5,10 +5,13 @@ on:
       - main
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
       
+      - name: Granted access
+        run: git update-index --chmod=+x ./github-actions-script.sh
+        
       - name: Run Shell file
         run: ./github-actions-script.sh
 #         shell: cmd
