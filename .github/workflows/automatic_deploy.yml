@@ -12,4 +12,4 @@ jobs:
       - name: Setup Deploy
 #         run: ./github-actions-script.sh
         shell: cmd
-        run: deploy.bat
+        run: ./deploy.bat
