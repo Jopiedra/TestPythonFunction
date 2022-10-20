@@ -25,7 +25,7 @@ jobs:
         uses: flcdrg/replace-multiple-action@v1
         with:
           files: './AppSettings.py'
-          find: '[{ "find": "MARIA_DB_SERVER_VALUE", "replace": ${{ env.MARIA_DB_SERVER_VALUE }} }]'
+          find: '[{ "find": "MARIA_DB_SERVER_VALUE", "replace": $MARIA_DB_SERVER_VALUE }]'
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
