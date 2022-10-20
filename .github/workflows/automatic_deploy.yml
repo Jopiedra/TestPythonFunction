@@ -16,6 +16,7 @@ jobs:
       MARIA_DB_NAME_VALUE: ${{ secrets.MARIA_DB_NAME_VALUE }}
       MARIA_DB_USER_VALUE: ${{ secrets.MARIA_DB_USER_VALUE }}
       MARIA_DB_PASSWORD_VALUE: ${{ secrets.MARIA_DB_PASSWORD_VALUE }}
+      REPLACES_DATA: '[{ "find": "MARIA_DB_SERVER_VALUE", "replace": "$MARIA_DB_SERVER_VALUE" }]'
       
     steps:
       - name: Git clone the repository
@@ -25,7 +26,7 @@ jobs:
         uses: flcdrg/replace-multiple-action@v1
         with:
           files: './AppSettings.py'
-          find: '[{ "find": "MARIA_DB_SERVER_VALUE", "replace": "$MARIA_DB_SERVER_VALUE" }]'
+          find: ${{ env.REPLACES_DATA }}
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
