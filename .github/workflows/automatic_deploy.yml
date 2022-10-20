@@ -10,9 +10,14 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Install dependencies
+        
         shell: cmd
-        run: |
-          msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+        run:  |
+          curl "https://awscli.amazonaws.com/AWSCLIV2.msi" -o /tmp/awscliv2.zip
+          unzip -q /tmp/awscliv2.zip -d /tmp
+          rm /tmp/awscliv2.zip
+          sudo /tmp/aws/install --update
+          rm -rf /tmp/aws/
           
       - name: Run Shell file 
         run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
