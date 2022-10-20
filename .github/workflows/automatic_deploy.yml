@@ -26,7 +26,7 @@ jobs:
       - name: Run Shell file 
         shell: cmd
         run: |
-          aws lightsail get-instances --region us-east-2 --query "instances[?tags[?key==`%1`]].{IP: publicIpAddress}"
+          aws lightsail get-instances --region us-east-2 --query "instances[?tags[?key==DEV]].{IP: publicIpAddress}"
 #          ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
 #         run: ./github-actions-script.sh
 
