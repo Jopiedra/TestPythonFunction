@@ -25,11 +25,16 @@ jobs:
           
       - name: Configure AWS Credentials
         run: |
-          awsv2 --configure default $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY
-          awsv2 configure set region $AWS_DEFAULT_REGION
+          aws configure
+          AWS Access Key ID: $AWS_ACCESS_KEY_ID
+          AWS Secret Access Key: $AWS_SECRET_ACCESS_KEY
+          Default region name: $AWS_DEFAULT_REGION
+          Default output format: json
           
       - name: Run Shell file 
-        run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
+        run: |
+          aws lightsail get-instances --region us-east-2 --query "instances[?tags[?key==`%1`]].{IP: publicIpAddress}"
+#          ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
 #         run: ./github-actions-script.sh
 
 #         run: |
