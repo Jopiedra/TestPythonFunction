@@ -23,17 +23,19 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           
-      - name: Configure AWS
-        run: |
-          echo "%AWS_DEFAULT_REGION%"
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region:  ${{ env.AWS_DEFAULT_REGION }}
 #          aws configure
 #          AWS Access Key ID [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
 #          AWS Secret Access Key [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
-#          Default region name [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
+#          Default region name [None]:  ${{ env.AWS_ACCESS_KEY_ID }}          
           
-          
-#       - name: Run Shell file 
-#         run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
+      - name: Run Shell file 
+        run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
 #         run: ./github-actions-script.sh
 
 #         run: |
