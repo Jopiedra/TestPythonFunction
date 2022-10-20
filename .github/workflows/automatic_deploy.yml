@@ -22,12 +22,11 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Find and Replace
-        uses: flcdrg/replace-multiple-action@v1
+        uses: andac-ozcan/actions-find-and-replace-string@3
         with:
-          files: './AppSettings.py'
-          find: ${{ env.REPLACES_DATA }}
-        env:
-          REPLACES_DATA: '[{ "find": "MARIA_DB_SERVER_VALUE", "replace": "tesMariadb" }]'
+            source: ${{ github.ref }} 
+            find: 'MARIA_DB_SERVER_VALUE'
+            replace: ${{ env.MARIA_DB_SERVER_VALUE }}
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
