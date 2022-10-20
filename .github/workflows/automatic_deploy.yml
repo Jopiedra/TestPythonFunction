@@ -9,12 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Granted access
-        run: git update-index --chmod=+x ./github-actions-script.sh
+#       - name: Granted access
+#         run: git update-index --chmod=+x ./github-actions-script.sh
         
       - name: Run Shell file 
+        shell: cmd
+        run: ./deploy.bat
 #         run: ./github-actions-script.sh
-#         shell: cmd
-        run: |
-          echo 1. What is in this directory?
-          ls
+
+#         run: |
+#           echo 1. What is in this directory?
+#           ls
