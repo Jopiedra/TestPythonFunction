@@ -25,7 +25,11 @@ jobs:
           
       - name: Configure AWS Credentials
         run: |
-          aws configure AWS Access Key ID: $AWS_ACCESS_KEY_ID AWS Secret Access Key: $AWS_SECRET_ACCESS_KEY Default region name: $AWS_DEFAULT_REGION Default output format: json
+          aws configure
+          $AWS_ACCESS_KEY_ID
+          $AWS_SECRET_ACCESS_KEY
+          $AWS_DEFAULT_REGION
+          json
           
       - name: Run Shell file 
         run: |
