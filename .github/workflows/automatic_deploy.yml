@@ -23,8 +23,17 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           
-      - name: Run Shell file 
-        run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
+      - name: Configure AWS
+        run: |
+          echo ${{ secrets.AWS_DEFAULT_REGION }}
+#          aws configure
+#          AWS Access Key ID [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
+#          AWS Secret Access Key [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
+#          Default region name [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
+          
+          
+#       - name: Run Shell file 
+#         run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
 #         run: ./github-actions-script.sh
 
 #         run: |
