@@ -17,7 +17,7 @@ jobs:
         shell: cmd
         run: |
           python -m pip install --upgrade pip
-          pip install awscli
+          pip install awscliv2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
@@ -25,11 +25,8 @@ jobs:
           
       - name: Configure AWS Credentials
         run: |
-         aws configure
-         AWS Access Key ID [None]:  $AWS_ACCESS_KEY_ID
-         AWS Secret Access Key [None]:  $AWS_SECRET_ACCESS_KEY
-         Default region name [None]:  $AWS_DEFAULT_REGION
-         Default output format [None]: json
+          awsv2 --configure default $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY}
+          awsv2 configure set region $AWS_DEFAULT_REGION
           
       - name: Run Shell file 
         run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
