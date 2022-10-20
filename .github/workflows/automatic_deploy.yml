@@ -26,6 +26,7 @@ jobs:
       - name: Run Shell file 
         shell: cmd
         run: |
+          cd ..
           dir
 #          ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction\TestPythonFunction
 #         run: ./github-actions-script.sh
