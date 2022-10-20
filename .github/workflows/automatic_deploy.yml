@@ -24,15 +24,12 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-#          aws configure
-#          AWS Access Key ID [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
-#          AWS Secret Access Key [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
-#          Default region name [None]:  ${{ env.AWS_ACCESS_KEY_ID }}          
+        run: |
+         aws configure
+         AWS Access Key ID [None]:  ${{ env.AWS_ACCESS_KEY_ID }}
+         AWS Secret Access Key [None]:  ${{ env.AWS_SECRET_ACCESS_KEY }}
+         Default region name [None]:  ${{ env.AWS_DEFAULT_REGION }}
+         Default output format [None]: json
           
       - name: Run Shell file 
         run: ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
