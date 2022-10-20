@@ -15,8 +15,7 @@ jobs:
       MARIA_DB_PORT_VALUE: ${{ secrets.MARIA_DB_PORT_VALUE }}
       MARIA_DB_NAME_VALUE: ${{ secrets.MARIA_DB_NAME_VALUE }}
       MARIA_DB_USER_VALUE: ${{ secrets.MARIA_DB_USER_VALUE }}
-      MARIA_DB_PASSWORD_VALUE: ${{ secrets.MARIA_DB_PASSWORD_VALUE }}
-      REPLACES_DATA: '[{ "find": "MARIA_DB_SERVER_VALUE", "replace": "$MARIA_DB_SERVER_VALUE" }]'
+      MARIA_DB_PASSWORD_VALUE: ${{ secrets.MARIA_DB_PASSWORD_VALUE }}      
       
     steps:
       - name: Git clone the repository
@@ -27,6 +26,8 @@ jobs:
         with:
           files: './AppSettings.py'
           find: ${{ env.REPLACES_DATA }}
+        env:
+          REPLACES_DATA: '[{ "find": "MARIA_DB_SERVER_VALUE", "replace": "tesMariadb" }]'
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
