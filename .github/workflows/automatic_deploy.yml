@@ -12,12 +12,9 @@ jobs:
       - name: Granted access
         run: git update-index --chmod=+x ./github-actions-script.sh
         
-      - name: Run Shell file
+      - name: Run Shell file 
 #         run: ./github-actions-script.sh
 #         shell: cmd
         run: |
           echo 1. What is in this directory?
-          ls -a
-          echo
-          echo 2. Is Z7 installed?
-          echo
+          ls -la
