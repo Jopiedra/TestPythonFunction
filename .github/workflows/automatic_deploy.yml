@@ -26,8 +26,7 @@ jobs:
       - name: Run Shell file 
         shell: cmd
         run: |
-          aws lightsail get-instances --region us-east-2
-#          ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
+          ./deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction
 #         run: ./github-actions-script.sh
 
 #         run: |
