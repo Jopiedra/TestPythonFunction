@@ -22,10 +22,8 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@master
-        with:
-          find: "MARIA_DB_SERVER_VALUE"
-          replace: ${{ env.MARIA_DB_SERVER_VALUE }}
+        run: |
+          python ./.github/Scripts/replacetool.py MARIA_DB_SERVER_VALUE "$MARIA_DB_SERVER_VALUE"
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
