@@ -21,7 +21,7 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v3
       
-      - name: Find and Replace
+      - name: Find and Replace AppSettings
         shell: cmd
         run: |
           python ./.github/Scripts/replacetool.py D:\a\TestPythonFunction\TestPythonFunction\AppSettings.py MARIA_DB_SERVER_VALUE "%MARIA_DB_SERVER_VALUE%"
