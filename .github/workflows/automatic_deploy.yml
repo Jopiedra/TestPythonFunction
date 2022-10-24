@@ -18,11 +18,11 @@ jobs:
       MARIA_DB_PASSWORD_VALUE: ${{ secrets.MARIA_DB_PASSWORD_VALUE }}      
       
     steps:
-      - shell: cmd
       - name: Git clone the repository
         uses: actions/checkout@v3
       
       - name: Find and Replace
+        shell: cmd
         run: |
           python ./.github/Scripts/replacetool.py D:\a\TestPythonFunction\TestPythonFunction\AppSettings.py MARIA_DB_SERVER_VALUE "%MARIA_DB_SERVER_VALUE%"
           
@@ -34,6 +34,7 @@ jobs:
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
           
       - name: Run Shell file         
+        shell: cmd
         run: |
           ./.github/Scripts/deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction\TestPythonFunction
 #         run: ./github-actions-script.sh
