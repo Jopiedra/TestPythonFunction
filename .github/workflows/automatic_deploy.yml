@@ -41,8 +41,3 @@ jobs:
         shell: cmd
         run: |
           ./.github/Scripts/deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction\TestPythonFunction
-#         run: ./github-actions-script.sh
-
-#         run: |
-#           echo 1. What is in this directory?
-#           ls
