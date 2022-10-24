@@ -25,6 +25,10 @@ jobs:
         shell: cmd
         run: |
           python ./.github/Scripts/replacetool.py D:\a\TestPythonFunction\TestPythonFunction\AppSettings.py MARIA_DB_SERVER_VALUE "%MARIA_DB_SERVER_VALUE%"
+          python ./.github/Scripts/replacetool.py D:\a\TestPythonFunction\TestPythonFunction\AppSettings.py MARIA_DB_PORT_VALUE "%MARIA_DB_PORT_VALUE%"
+          python ./.github/Scripts/replacetool.py D:\a\TestPythonFunction\TestPythonFunction\AppSettings.py MARIA_DB_NAME_VALUE "%MARIA_DB_NAME_VALUE%"
+          python ./.github/Scripts/replacetool.py D:\a\TestPythonFunction\TestPythonFunction\AppSettings.py MARIA_DB_USER_VALUE "%MARIA_DB_USER_VALUE%"
+          python ./.github/Scripts/replacetool.py D:\a\TestPythonFunction\TestPythonFunction\AppSettings.py MARIA_DB_PASSWORD_VALUE "%MARIA_DB_PASSWORD_VALUE%"
           
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
