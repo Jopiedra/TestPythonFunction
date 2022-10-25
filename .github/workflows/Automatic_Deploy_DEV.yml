@@ -1,6 +1,8 @@
 name: Automatic Deploy Development
 on:
   pull_request:
+    types:
+      - closed
     branches:
       - Development
 jobs:
