@@ -24,7 +24,7 @@ def main(filepath, searchtxt, replacetxt):
     f = open(filepath, 'w')
     f.write(s)
     f.close()
-    print("**** REPLACE SUCCESS. ****")
+    print(f"**** REPLACE {searchtxt} SUCCESS. ****")
     print("")
     quit()
 
