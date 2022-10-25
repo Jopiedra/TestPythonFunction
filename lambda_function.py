@@ -24,4 +24,6 @@ event = {
     "detail": {}
 }
 
+# testing de prueba para DEV
+
 print(lambda_handler(event, context))
