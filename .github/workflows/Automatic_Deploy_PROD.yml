@@ -1,8 +1,10 @@
 name: Automatic Deploy Production
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-      - Main
+      - main
 jobs:
   build:
     runs-on: windows-latest
