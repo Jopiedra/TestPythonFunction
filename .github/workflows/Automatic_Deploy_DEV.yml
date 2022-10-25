@@ -2,7 +2,7 @@ name: Automatic Deploy
 on:
   push:
     branches:
-      - main
+      - Development
 jobs:
   build:
     runs-on: windows-latest
