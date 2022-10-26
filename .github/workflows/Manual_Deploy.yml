@@ -15,6 +15,7 @@ jobs:
     runs-on: windows-latest
     environment: ${{ inputs.envTarget }}
     env:
+      COMMIT_TARGET: ${{ inputs.commitTarget }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
@@ -33,7 +34,7 @@ jobs:
       - name: Checkout to Specific Commit
         shell: cmd
         run: |
-          git checkout "%inputs.commitTarget%"
+          git checkout "%COMMIT_TARGET%"
       
       - name: Find and Replace AppSettings
         shell: cmd
