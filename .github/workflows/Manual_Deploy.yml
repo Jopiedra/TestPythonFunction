@@ -26,8 +26,10 @@ jobs:
       
     steps:
       - name: Git clone the repository at specific commit
-      - uses: actions/checkout@v3
-      - run: |
+        uses: actions/checkout@v3
+        
+      - name: Checkout to Specific Commit
+        run: |
           git checkout "%inputs.commitTarget%"
       
       - name: Find and Replace AppSettings
