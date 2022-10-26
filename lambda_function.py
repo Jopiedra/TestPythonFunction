@@ -24,6 +24,6 @@ event = {
     "detail": {}
 }
 
-# Prueba de disparador DEV
+# Prueba de disparador DEV - Nuevo cambio
 
 print(lambda_handler(event, context))
