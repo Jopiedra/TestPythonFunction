@@ -1,4 +1,4 @@
-name: Automatic Deploy Development
+name: Manual Deployment
 on:
   workflow_dispatch:
     inputs:
@@ -7,7 +7,7 @@ on:
         required: true
         type: environment
       commitTarget:
-        description: 'Commit Target to deploy"
+        description: 'Commit Target to deploy'
         required: true
       
 jobs:
