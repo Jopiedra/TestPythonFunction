@@ -31,6 +31,7 @@ jobs:
           fetch-depth: 0
         
       - name: Checkout to Specific Commit
+        shell: cmd
         run: |
           git checkout "%inputs.commitTarget%"
       
