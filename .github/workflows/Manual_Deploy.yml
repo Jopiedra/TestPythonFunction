@@ -6,6 +6,7 @@ on:
         description: 'Environment Target'
         required: true
         type: environment
+        default: Development
       commitTarget:
         description: 'Commit Target to deploy'
         required: true
