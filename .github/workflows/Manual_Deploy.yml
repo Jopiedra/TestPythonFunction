@@ -1,15 +1,23 @@
-name: Automatic Deploy Production
+name: Manual Deployment
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      envTarget:
+        description: 'Environment Target'
+        required: true
+        type: environment
+        default: Development
+      commitTarget:
+        description: 'Commit Target to deploy'
+        required: true
+      
 jobs:
   build:
     runs-on: windows-latest
-    environment: Production
+    environment: ${{ inputs.envTarget }}
     env:
+      ENVIRONMENT_TARGET: ${{ inputs.envTarget }}
+      COMMIT_TARGET: ${{ inputs.commitTarget }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
@@ -20,8 +28,15 @@ jobs:
       MARIA_DB_PASSWORD_VALUE: ${{ secrets.MARIA_DB_PASSWORD_VALUE }}      
       
     steps:
-      - name: Git clone the repository
+      - name: Git clone the repositor
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+      - name: Checkout to Specific Commit
+        shell: cmd
+        run: |
+          git checkout "%COMMIT_TARGET%"
       
       - name: Find and Replace AppSettings
         shell: cmd
@@ -39,7 +54,20 @@ jobs:
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
           
-      - name: Run Shell file         
+      - name: Deployment in DEV environment
         shell: cmd
+        if: env.ENVIRONMENT_TARGET == 'Development'
+        run: |
+          ./.github/Scripts/deploy.bat TestPythonFunction /dev /python /prj:D:\a\TestPythonFunction\TestPythonFunction
+
+      - name: Deployment in QA environment
+        shell: cmd
+        if: env.ENVIRONMENT_TARGET == 'QA'
+        run: |
+          ./.github/Scripts/deploy.bat TestPythonFunction /qa /python /prj:D:\a\TestPythonFunction\TestPythonFunction
+          
+      - name: Deployment in PROD environment
+        shell: cmd
+        if: env.ENVIRONMENT_TARGET == 'Production'
         run: |
           ./.github/Scripts/deploy.bat TestPythonFunction /prod /python /prj:D:\a\TestPythonFunction\TestPythonFunction
