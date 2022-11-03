@@ -35,24 +35,25 @@ REM --- Validating and extracting lambda function name.
 REM --- Validating and extracting the environment target.
 	set vdeploymenttarget=%2
 	set _condres=0
+	
 	if /I "!vdeploymenttarget!" == "/build" (
 		set envnametodeploy=
 		set _condres=1
-	)
+	) 
 	if /I "!vdeploymenttarget!" == "/prod" (
-		set envnametodeploy=Production
+		set envnametodeploy=prod
 		set _condres=1
 	)
 	if /I "!vdeploymenttarget!" == "/dev" (
-		set envnametodeploy=Development
+		set envnametodeploy=dev
 		set _condres=1
 	)
 	if /I "!vdeploymenttarget!" == "/qa" (
-		set envnametodeploy=QA
+		set envnametodeploy=qa
 		set _condres=1
 	)
 	if /I "!vdeploymenttarget!" == "/aut" (
-		set envnametodeploy=Automation
+		set envnametodeploy=uat
 		set _condres=1
 	)
 	if !_condres! EQU 0 (

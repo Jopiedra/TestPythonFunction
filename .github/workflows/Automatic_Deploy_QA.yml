@@ -1,6 +1,8 @@
 name: Automatic Deploy QA
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - QA
 jobs:
