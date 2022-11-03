@@ -29,7 +29,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install flake8 pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          for %%R in (requirements.txt) do if not %%~zR lss 1 pip install -r requirements.txt
 
       - name: Find and Replace AppSettings
         shell: cmd
